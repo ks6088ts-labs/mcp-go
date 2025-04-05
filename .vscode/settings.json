@@ -1,0 +1,14 @@
+{
+  "mcp": {
+    "servers": {
+      "playwright": {
+        "command": "npx",
+        "args": ["-y", "@playwright/mcp@latest", "--vision"]
+      },
+      "hello": {
+        "command": "/Users/ks6088ts/src/github.com/ks6088ts-labs/mcp-go/dist/mcp-go",
+        "args": ["sandbox", "hello"]
+      }
+    }
+  }
+}
