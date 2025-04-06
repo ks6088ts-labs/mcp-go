@@ -46,6 +46,23 @@ var helloCmd = &cobra.Command{
 			server.WithLogging(),
 		)
 
+		// Add a greeting tool
+		tool := mcp.NewTool("hello_world",
+			mcp.WithDescription("Say hello to someone"),
+			mcp.WithString("name",
+				mcp.Required(),
+				mcp.Description("Name of the person to greet"),
+			),
+		)
+		s.AddTool(tool, func(ctx context.Context, request mcp.CallToolRequest) (*mcp.CallToolResult, error) {
+			name, ok := request.Params.Arguments["name"].(string)
+			if !ok {
+				return nil, errors.New("name must be a string")
+			}
+
+			return mcp.NewToolResultText(fmt.Sprintf("Hello, %s!", name)), nil
+		})
+
 		// Add a calculator tool
 		calculatorTool := mcp.NewTool("calculate",
 			mcp.WithDescription("Perform basic arithmetic operations"),
@@ -63,8 +80,6 @@ var helloCmd = &cobra.Command{
 				mcp.Description("Second number"),
 			),
 		)
-
-		// Add the calculator handler
 		s.AddTool(calculatorTool, func(ctx context.Context, request mcp.CallToolRequest) (*mcp.CallToolResult, error) {
 			op := request.Params.Arguments["operation"].(string)
 			x := request.Params.Arguments["x"].(float64)
@@ -80,7 +95,7 @@ var helloCmd = &cobra.Command{
 				result = x * y
 			case "divide":
 				if y == 0 {
-					return nil, errors.New("Cannot divide by zero")
+					return nil, errors.New("cannot divide by zero")
 				}
 				result = x / y
 			}

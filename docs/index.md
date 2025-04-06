@@ -16,6 +16,8 @@
 
 # References
 
+- [modelcontextprotocol/specification](https://github.com/modelcontextprotocol/specification): The specification of the Model Context Protocol
+- [MCP に入門する/ Introduction to MCP](https://speakerdeck.com/shuntaka/introduction-to-mcp)
 - [mark3labs/mcp-go](https://github.com/mark3labs/mcp-go): A Go implementation of the Model Context Protocol (MCP), enabling seamless integration between LLM applications and external data sources and tools.
 - [github/github-mcp-server](https://github.com/github/github-mcp-server): GitHub's official MCP Server
 - [Go の Model Context Protocol (MCP)の開発フレームワーク mcp-go を使ってみる](https://zenn.dev/uji/articles/try-mpc-development-mcp-go)
