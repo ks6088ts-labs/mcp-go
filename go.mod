@@ -3,7 +3,7 @@ module github.com/ks6088ts-labs/mcp-go
 go 1.23.2
 
 require (
-	github.com/mark3labs/mcp-go v0.18.0
+	github.com/mark3labs/mcp-go v0.23.1
 	github.com/spf13/cobra v1.9.1
 	github.com/spf13/viper v1.20.1
 )
